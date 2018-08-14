@@ -1,3 +1,4 @@
+export const SPOTIFY_SEARCH_URL = "https://api.spotify.com/v1/search";
 export const SPOTIFY_BASE_URL = "https://api.spotify.com/v1/";
 export const ARTIST_ENDPOINT = "artists/";
 export const TOP_TRACKS_ENDPOINT = "/top-tracks";
