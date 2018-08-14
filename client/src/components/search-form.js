@@ -1,14 +1,17 @@
 import React from 'react';
 import './search-form.css';
+import {search_artist} from '../actions/spotify-search';
+import {connect} from 'react-redux';
 
-export default class SearchForm extends React.Component {
+export class SearchForm extends React.Component {
   componentDidMount() {
     this.input.focus();
   }
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.input.value);
+    this.props.dispatch(search_artist(this.input.value.trim()));
+    this.input.value = '';
   }
 
   render() {
@@ -39,3 +42,5 @@ export default class SearchForm extends React.Component {
     )
   }
 }
+
+export default connect()(SearchForm);
