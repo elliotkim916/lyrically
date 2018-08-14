@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
 import SearchForm from './search-form';
+import SearchResults from './search-results';
 
 const spotifyWebApi = new Spotify();
 
@@ -20,13 +21,14 @@ class App extends Component {
     }
 
     if (params.access_token) {
+      console.log(params.access_token);
       spotifyWebApi.setAccessToken(params.access_token);
     }
   }
 
-  componentDidMount() {
-    this.getNowPlaying();
-  }
+  // componentDidMount() {
+  //   this.getNowPlaying();
+  // }
 
   getHashParams() {
     var hashParams = {};
@@ -38,18 +40,17 @@ class App extends Component {
     return hashParams;
   }
 
-  getNowPlaying() {
-    spotifyWebApi.getMyCurrentPlaybackState()
-      .then(res => {
-        console.log(res.item.album.images[0].url);
-        this.setState({
-          nowPlaying: {
-            name: res.item.name,
-            image: res.item.album.images[0].url
-          }
-        });
-      });
-  }
+  // getNowPlaying() {
+  //   spotifyWebApi.getMyCurrentPlaybackState()
+  //     .then(res => {
+  //       this.setState({
+  //         nowPlaying: {
+  //           name: res.item.name,
+  //           image: res.item.album.images[0].url
+  //         }
+  //       });
+  //     });
+  // }
 
   render() {
     return (
@@ -57,15 +58,16 @@ class App extends Component {
         <a href="http://localhost:8888">
           <button>Sign In With Spotify</button>
         </a>
-        <div> NOW PLAYING : {this.state.nowPlaying.name} </div>
+        {/* <div> NOW PLAYING : {this.state.nowPlaying.name} </div>
         <div> 
           <img 
               src = {this.state.nowPlaying.image} 
               alt = "Album Cover" 
               style = {{width: 300}}   
           />
-        </div>
-        <SearchForm/>
+        </div> */}
+        <SearchForm />
+        <SearchResults />
       </div>
     );
   }
