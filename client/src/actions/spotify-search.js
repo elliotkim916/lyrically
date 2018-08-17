@@ -1,6 +1,6 @@
 import {
   SPOTIFY_SEARCH_URL,
-  TOKEN
+  SPOTIFY_TOKEN
 } from '../config';
 
 export const SPOTIFY_SEARCH_REQUEST = 'SPOTIFY_SEARCH_REQUEST';
@@ -23,7 +23,7 @@ export const spotifySearchError = error => ({
 function fetch_artist(artist) {
   return fetch(`${SPOTIFY_SEARCH_URL}/?q=${artist}&type=track`, {
     headers: {
-      'Authorization': `Bearer ${TOKEN}`
+      'Authorization': `Bearer ${SPOTIFY_TOKEN}`
     }
   }).then(res => {
       if (!res.ok) {
