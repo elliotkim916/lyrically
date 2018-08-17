@@ -1,3 +1,8 @@
+import {
+  GENIUS_BASE_URL,
+  GENIUS_TOKEN
+} from '../config';
+
 export const LYRICS_SEARCH_REQUEST = 'LYRICS_SEARCH_REQUEST';
 export const lyricsSearchRequest = () => ({
   type: LYRICS_SEARCH_REQUEST
@@ -14,3 +19,26 @@ export const lyricsSearchError = error => ({
   type: LYRICS_SEARCH_ERROR,
   error
 });
+
+function fetch_lyrics(song) {
+  return fetch(`${GENIUS_BASE_URL}${song}`,{
+    headers: {
+      'Authorization': `Bearer ${GENIUS_TOKEN}`
+    }
+  }).then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  }).then(data => console.log(data)); 
+}
+
+export const get_lyrics = lyrics => dispatch => {
+  dispatch(lyricsSearchRequest());
+  fetch_lyrics(lyrics)
+  .then(lyrics => {
+    dispatch(lyricsSearchSuccess(lyrics));
+  }).catch(error => {
+    dispatch(lyricsSearchError(error));
+  });
+}
