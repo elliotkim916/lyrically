@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-export function lyricSearchReducer(state=initialState, action) {
+export function lyricsSearchReducer(state=initialState, action) {
   if (action.type === LYRICS_SEARCH_REQUEST) {
     return Object.assign({}, state, {
       loading: true
