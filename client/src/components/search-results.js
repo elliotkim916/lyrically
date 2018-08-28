@@ -18,9 +18,10 @@ export class SearchResults extends React.Component {
       <li key={index} className="list-item">
         <img 
           src = {`${result.album.images[1].url}`}
-          alt = ''  
+          alt = ''
+          className = "cover_image"  
         />
-        <p onClick={e => this.findLyrics(e, result.name)}>{result.name}</p>
+        <p onClick={e => this.findLyrics(e, result.name)} className="song_name">{result.name}</p>
       </li>
     );
 
