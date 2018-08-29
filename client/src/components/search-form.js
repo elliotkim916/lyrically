@@ -1,6 +1,7 @@
 import React from 'react';
 import './search-form.css';
-import {search_artist} from '../actions/spotify-search';
+//import {search_artist} from '../actions/spotify-search';
+import {get_lyrics} from '../actions/lyrics-search';
 import {connect} from 'react-redux';
 
 export class SearchForm extends React.Component {
@@ -10,7 +11,7 @@ export class SearchForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.dispatch(search_artist(this.input.value.trim()));
+    this.props.dispatch(get_lyrics(this.input.value.trim()));
     this.input.value = '';
   }
 
