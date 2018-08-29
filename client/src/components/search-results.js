@@ -11,24 +11,40 @@ export class SearchResults extends React.Component {
   }
 
   render() {
-    let spotify_results_array = this.props.spotify_search_results;
-    let spotify_search_result = '';
+    // console.log(this.props.genius_search_results);
+    // let spotify_results_array = this.props.spotify_search_results;
+    // let spotify_search_result = '';
+    let genius_results_array = this.props.genius_search_results;
+    let genius_search_result = '';
 
-    spotify_search_result = spotify_results_array.map((result, index) => 
+    genius_search_result = genius_results_array.map((result, index) => 
+      //console.log(result.result)
       <li key={index} className="list-item">
         <img 
-          src = {`${result.album.images[1].url}`}
-          alt = ''
-          className = "cover_image"  
+          src={`${result.result.song_art_image_thumbnail_url}`}
+          alt=''
+          className="cover_image"
         />
-        <p onClick={e => this.findLyrics(e, result.name)} className="song_name">{result.name}</p>
+        <p className="song_name">{result.result.full_title}</p>
       </li>
     );
+
+    // spotify_search_result = spotify_results_array.map((result, index) => 
+    //   <li key={index} className="list-item">
+    //     <img 
+    //       src = {`${result.album.images[1].url}`}
+    //       alt = ''
+    //       className = "cover_image"  
+    //     />
+    //     <p onClick={e => this.findLyrics(e, result.name)} className="song_name">{result.name}</p>
+    //   </li>
+    // );
 
     return (
       <section className="search_results">
         <ul>
-          {spotify_search_result}
+          {genius_search_result}
+          {/* {spotify_search_result} */}
         </ul>
       </section>
     );
@@ -36,7 +52,8 @@ export class SearchResults extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  spotify_search_results: state.spotify.search_results
+  spotify_search_results: state.spotify.search_results,
+  genius_search_results: state.genius.lyrics
 });
 
 export default connect(mapStateToProps)(SearchResults);
