@@ -6,7 +6,6 @@ import './search-results.css';
 export class SearchResults extends React.Component {
   findLyrics(e, song) {
     e.preventDefault();
-    console.log('clicked');
     this.props.dispatch(get_lyrics(song));
   }
 
@@ -25,7 +24,8 @@ export class SearchResults extends React.Component {
           alt=''
           className="cover_image"
         />
-        <p className="song_name">{result.result.full_title}</p>
+        <p className="song_name">{result.result.title_with_featured}</p>
+        <p className="song_artist">{result.result.primary_artist.name}</p>
       </li>
     );
 
