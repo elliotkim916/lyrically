@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     if (params.access_token) {
-      console.log(params.access_token);
+      //console.log(params.access_token);
       spotifyWebApi.setAccessToken(params.access_token);
     }
   }
