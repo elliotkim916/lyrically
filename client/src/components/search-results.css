@@ -1,14 +1,14 @@
 ul {
   list-style: none;
-  margin-left: -36px;
+  margin-left: -38px;
 }
 
 .list-item {
   margin-bottom: 60px;
   display: inline-block;
-  margin-left: 20px;
-  margin-right: 20px;
-  max-width: 300px;
+  margin-left: 25px;
+  margin-right: 25px;
+  max-width: 235px;
 }
 
 .cover_image {
@@ -17,5 +17,15 @@ ul {
 
 .song_name {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1em;
+  text-align: left;
+}
+
+.song_artist {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 100;
+  font-size: 0.9em;
+  text-align: left;
+  margin-top: -10px;
 }
