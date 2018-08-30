@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
-import Spotify from 'spotify-web-api-js';
+//import Spotify from 'spotify-web-api-js';
 import SearchForm from './search-form';
 import SearchResults from './search-results';
 
-const spotifyWebApi = new Spotify();
+// const spotifyWebApi = new Spotify();
 
 class App extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    const params = this.getHashParams();
+  //   const params = this.getHashParams();
 
-    this.state = {
-      loggedIn: params.access_token ? true : false,
-      nowPlaying: {
-        name: '',
-        image: ''
-      }
-    }
+  //   this.state = {
+  //     loggedIn: params.access_token ? true : false,
+  //     nowPlaying: {
+  //       name: '',
+  //       image: ''
+  //     }
+  //   }
 
-    if (params.access_token) {
-      //console.log(params.access_token);
-      spotifyWebApi.setAccessToken(params.access_token);
-    }
-  }
+  //   if (params.access_token) {
+  //     //console.log(params.access_token);
+  //     spotifyWebApi.setAccessToken(params.access_token);
+  //   }
+  // }
 
   // componentDidMount() {
   //   this.getNowPlaying();
   // }
 
-  getHashParams() {
-    var hashParams = {};
-    var e, r = /([^&;=]+)=?([^&;]*)/g,
-      q = window.location.hash.substring(1);
-    while ( e = r.exec(q)) {
-      hashParams[e[1]] = decodeURIComponent(e[2]);
-    }
-    return hashParams;
-  }
+  // getHashParams() {
+  //   var hashParams = {};
+  //   var e, r = /([^&;=]+)=?([^&;]*)/g,
+  //     q = window.location.hash.substring(1);
+  //   while ( e = r.exec(q)) {
+  //     hashParams[e[1]] = decodeURIComponent(e[2]);
+  //   }
+  //   return hashParams;
+  // }
 
   // getNowPlaying() {
   //   spotifyWebApi.getMyCurrentPlaybackState()
@@ -55,9 +55,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <a href="http://localhost:8888">
+        {/* <a href="http://localhost:8888">
           <button>Sign In With Spotify</button>
-        </a>
+        </a> */}
         {/* <div> NOW PLAYING : {this.state.nowPlaying.name} </div>
         <div> 
           <img 
