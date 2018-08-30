@@ -18,3 +18,22 @@ export const songSearchError = error => ({
   type: SONG_SEARCH_ERROR,
   error
 });
+
+function fetchSong(song_endpoint) {
+  return fetch(`${GENIUS_SONG_BASE_URL}${song_endpoint}`).then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  }).then(data => console.log(data)); 
+}
+
+export const getSong = song => dispatch => {
+  dispatch(songSearchRequest());
+  fetchSong(song)
+  .then(song => {
+    dispatch(songSearchSuccess(song))
+  }).catch(error => {
+    dispatch(songSearchError(error))
+  });
+}
