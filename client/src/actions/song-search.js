@@ -30,7 +30,7 @@ function fetch_song(song_endpoint) {
 
 export const get_song = song => dispatch => {
   dispatch(songSearchRequest());
-  fetchSong(song)
+  fetch_song(song)
   .then(song => {
     dispatch(songSearchSuccess(song))
   }).catch(error => {
