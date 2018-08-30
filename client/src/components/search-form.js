@@ -18,6 +18,7 @@ export class SearchForm extends React.Component {
   render() {
     return (
       <section className="search_form_section">
+      <h1 className="form_header">Search for an Artist, Song, or Album</h1>
         <form 
           className="search_form"
           onSubmit = {(e) => {this.onSubmit(e)}}
