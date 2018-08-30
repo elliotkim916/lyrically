@@ -1,5 +1,6 @@
 import {
-  GENIUS_SONG_BASE_URL
+  GENIUS_SONG_BASE_URL,
+  GENIUS_TOKEN
 } from '../config';
 
 export const SONG_SEARCH_REQUEST = 'SONG_SEARCH_REQUEST';
@@ -20,7 +21,13 @@ export const songSearchError = error => ({
 });
 
 function fetch_song(song_endpoint) {
-  return fetch(`${GENIUS_SONG_BASE_URL}${song_endpoint}`).then(res => {
+  const headers = {
+    'Authorization': `Bearer ${GENIUS_TOKEN}`
+  }
+  
+  return fetch(`${GENIUS_SONG_BASE_URL}${song_endpoint}`, {
+    headers
+  }).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
