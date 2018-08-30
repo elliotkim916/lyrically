@@ -1,12 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {get_lyrics} from '../actions/lyrics-search';
+//import {get_lyrics} from '../actions/lyrics-search';
+import {get_song} from '../actions/song-search';
 import './search-results.css';
 
 export class SearchResults extends React.Component {
-  findLyrics(e, song) {
+  // findLyrics(e, song) {
+  //   e.preventDefault();
+  //   this.props.dispatch(get_lyrics(song));
+  // }
+
+  findSong(e, song) {
     e.preventDefault();
-    this.props.dispatch(get_lyrics(song));
+    this.props.dispatch(get_song(song));
   }
 
   render() {
@@ -17,17 +23,23 @@ export class SearchResults extends React.Component {
     let genius_search_result = '';
 
     genius_search_result = genius_results_array.map((result, index) => 
-      //console.log(result.result)
+      // result.result.api_path
       <li key={index} className="list-item">
         <img 
           src={`${result.result.song_art_image_thumbnail_url}`}
           alt=''
           className="cover_image"
         />
-        <p className="song_name">{result.result.title_with_featured}</p>
+        <p 
+          onClick = {e => this.findSong(e, result.result.api_path)} 
+          className="song_name"
+        >
+        {result.result.title_with_featured}
+        </p>
         <p className="song_artist">{result.result.primary_artist.name}</p>
       </li>
     );
+    console.log(genius_results_array);
 
     // spotify_search_result = spotify_results_array.map((result, index) => 
     //   <li key={index} className="list-item">
