@@ -5,6 +5,11 @@ import {get_song} from '../actions/song-search';
 import './search-results.css';
 
 export class SearchResults extends React.Component {
+  componentDidMount() {
+    const genius_token = window.location.href.replace(/.*code=/g,'');
+    //console.log(genius_token);
+  }
+
   // findLyrics(e, song) {
   //   e.preventDefault();
   //   this.props.dispatch(get_lyrics(song));
