@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 //import Spotify from 'spotify-web-api-js';
+import LandingPage from './landing-page';
 import SearchForm from './search-form';
 import SearchResults from './search-results';
 
@@ -66,6 +67,7 @@ class App extends Component {
               style = {{width: 300}}   
           />
         </div> */}
+        <LandingPage />
         <SearchForm />
         <SearchResults />
       </div>
