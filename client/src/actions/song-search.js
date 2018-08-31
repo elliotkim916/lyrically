@@ -1,7 +1,12 @@
 import {
   GENIUS_SONG_BASE_URL,
-  GENIUS_TOKEN
+  GENIUS_TOKEN,
+  GENIUS_OAUTH_BASE_URL,
+  GENIUS_CLIENT_ID,
+  GENIUS_REDIRECT_URI
 } from '../config';
+
+let href;
 
 export const SONG_SEARCH_REQUEST = 'SONG_SEARCH_REQUEST';
 export const songSearchRequest = () => ({
@@ -20,6 +25,12 @@ export const songSearchError = error => ({
   error
 });
 
+function OAuth() {
+  window.location.href = `${GENIUS_OAUTH_BASE_URL}client_id=${GENIUS_CLIENT_ID}&redirect_uri=http://localhost:3000/&scope=me&response_type=code`;
+  href = window.location.href.replace(/.*code=/g,'');
+  console.log(href);
+}
+
 function fetch_song(song_endpoint) {
   const headers = {
     'Authorization': `Bearer ${GENIUS_TOKEN}`
@@ -37,6 +48,7 @@ function fetch_song(song_endpoint) {
 
 export const get_song = song => dispatch => {
   dispatch(songSearchRequest());
+  OAuth();
   fetch_song(song)
   .then(song => {
     dispatch(songSearchSuccess(song))
