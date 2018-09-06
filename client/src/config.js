@@ -12,5 +12,6 @@ export const GENIUS_OAUTH_BASE_URL = "https://api.genius.com/oauth/authorize?";
 export const GENIUS_OAUTH_AUTHORIZE_BASE_URL = "https://api.genius.com/oauth/authorize";
 export const GENIUS_CLIENT_ID = "CmmRGl7ZYAwZjWzuLQqsfnJ06Z0VgT9c2NYiclYDObanQdg43bvM1auv_S28YdEf";
 export const GENIUS_SECRET = "Yk1_wt6f--PvU7WPjqGW80qDzClBWC2kAXGw6RTlhT4njJUp7y5gUJ-UINCKyr_wT0vw3uHB3nXyP1iR5E9ZeA";
-export const GENIUS_TOKEN = "peQhsQGMnyW69YZvpkLMRKqbz1HrkzXKCSbsWfihSUhGdBmGtaC4o5YUKZqR_9h2";
+export const GENIUS_TOKEN = "NUx7ngvoQu9nXNYEOWVAa_-C3s9gO_jCioNiXXNH3NQXAp5iIfvAwTXWVAF7LWMZ";
 export const GENIUS_REDIRECT_URI = "https://warm-journey-81614.herokuapp.com/";
+export const GENIUS_OAUTH_URL = "https://api.genius.com/oauth/token";
