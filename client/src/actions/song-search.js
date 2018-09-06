@@ -27,7 +27,7 @@ export const songSearchError = error => ({
 });
 
 // function OAuth() {
-//   window.location.href = `${GENIUS_OAUTH_BASE_URL}client_id=${GENIUS_CLIENT_ID}&redirect_uri=http://localhost:3000/&scope=me&response_type=code`;
+//   window.location.href = `${GENIUS_OAUTH_BASE_URL}client_id=${GENIUS_CLIENT_ID}&redirect_uri=https://warm-journey-81614.herokuapp.com/&scope=me&response_type=code`;
 //   let href = window.location.href.replace(/.*code=/g,'');
 //   console.log(href);
 // }
