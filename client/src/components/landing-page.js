@@ -12,7 +12,7 @@ import {
 export default class LandingPage extends React.Component {
   OAuth() {
     //localStorage.removeItem('genius_token');
-    window.location.href = `${GENIUS_OAUTH_BASE_URL}client_id=${GENIUS_CLIENT_ID}&redirect_uri=http://localhost:3000/&scope=me&response_type=token`;
+    window.location.href = `${GENIUS_OAUTH_BASE_URL}client_id=${GENIUS_CLIENT_ID}&redirect_uri=https://warm-journey-81614.herokuapp.com/&scope=me&response_type=token`;
   }
 
   authorizeOAuth() {
