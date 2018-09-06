@@ -27,9 +27,9 @@ export class SearchResults extends React.Component {
 
     let genius_results_array = this.props.genius_search_results;
     let genius_search_result = '';
-    let genius_token = window.location.href.replace(/.*code=/g,'').slice(0, -18);
-    localStorage.setItem('genius_token', genius_token);
-    // console.log(genius_token);
+    // let genius_token = window.location.href.replace(/.*access_token=/g,'').slice(0, -18);
+    let genius_token = localStorage.getItem('genius_token');
+    console.log(genius_token);
 
     genius_search_result = genius_results_array.map((result, index) => 
       // result.result.api_path
