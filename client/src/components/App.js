@@ -54,6 +54,10 @@ class App extends Component {
   // }
 
   render() {
+    let genius_token = window.location.href.replace(/.*access_token=/g,'').slice(0, -18);
+    localStorage.setItem('genius_token', genius_token);
+    console.log(genius_token);
+    
     return (
       <div className="App">
         {/* <a href="http://localhost:8888">
