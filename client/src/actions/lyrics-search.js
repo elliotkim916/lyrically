@@ -23,15 +23,8 @@ export const lyricsSearchError = error => ({
   error
 });
 
-// function OAuth() {
-//   return fetch(`${GENIUS_OAUTH_BASE_URL}client_id=${GENIUS_CLIENT_ID}&scope=`)
-// }
-
 function fetch_lyrics(song) {
   return fetch(`${GENIUS_BASE_URL}${song}&access_token=${GENIUS_TOKEN}`,{
-    // headers: {
-    //   'Authorization': `Bearer ${GENIUS_TOKEN}`
-    // }
   }).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
